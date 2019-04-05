@@ -3,17 +3,17 @@ sse:
   # Set the credentials for the SaltStack Enterprise service
   # - The default for the username is "root"
   #   and the default for the password is "salt"
-  sse_eapi_username: root
-  sse_eapi_password: salt
+  sseapi_username: root
+  sseapi_password: salt
 
   # Set the endpoint for the SaltStack Enterprise service
-  sse_eapi_endpoint: sseapi.example.com
+  sseapi_endpoint: sseapi.example.com
 
   # Set if SaltStack Enterprise will use SSL encrypted communicaiton (HTTPS)
-  sse_eapi_ssl_enabled: True
+  sseapi_ssl_enabled: True
 
   # Set if SaltStack Enterprise will use SSL validation (verified certificate)
-  sse_eapi_ssl_validation: True
+  sseapi_ssl_validation: True
 
   # Set frecuency of polls for commands targeting the given master.
   sseapi_poll_interval: 10

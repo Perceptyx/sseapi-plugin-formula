@@ -2,20 +2,20 @@
   Salt State to Install and Configure SaltStack Enterprise Master Plugin 
 #}
 
-{% set eapi_endpoint = salt['pillar.get']('sse:sse_eapi_endpoint', 'localhost') %}
-{% set eapi_ssl_enabled = salt['pillar.get']('sse:sse_eapi_ssl_enabled', 'True') %}
+{% set eapi_endpoint = salt['pillar.get']('sse:sseapi_endpoint', 'localhost') %}
+{% set eapi_ssl_enabled = salt['pillar.get']('sse:sseapi_ssl_enabled', 'True') %}
 {% if eapi_ssl_enabled %}
 {% set eapi_url = "https://%s"|format(eapi_endpoint) %}
 {% else %}
 {% set eapi_url = "http://%s"|format(eapi_endpoint) %}
 {% endif %}
-{% set eapi_ssl_validation = salt['pillar.get']('sse:sse_eapi_ssl_validation', 'False') %}
-{% set eapi_username = salt['pillar.get']('sse:sse_eapi_username', 'root') %}
-{% set eapi_password = salt['pillar.get']('sse:sse_eapi_password', 'salt') %}
+{% set eapi_ssl_validation = salt['pillar.get']('sse:sseapi_ssl_validation', 'False') %}
+{% set eapi_username = salt['pillar.get']('sse:sseapi_username', 'root') %}
+{% set eapi_password = salt['pillar.get']('sse:sseapi_password', 'salt') %}
 
-{% set eapi_poll_interval = salt['pillar.get']('sse:sse_eapi_poll_interval', '10') %}
-{% set eapi_poll_request_timeout = salt['pillar.get']('sse:sse_eapi_request_timeout', '60') %}
-{% set eapi_update_interval = salt['pillar.get']('sse:sse_eapi_update_interval', '60') %}
+{% set eapi_poll_interval = salt['pillar.get']('sse:sseapi_poll_interval', '10') %}
+{% set eapi_poll_request_timeout = salt['pillar.get']('sse:sseapi_request_timeout', '60') %}
+{% set eapi_update_interval = salt['pillar.get']('sse:sseapi_update_interval', '60') %}
 
 {% set eapi_egg = salt['pillar.get']('sse:eapi_egg') %}
 {% set eapi_egg_hash = salt['pillar.get']('sse:eapi_egg_hash') %}
