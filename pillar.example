@@ -20,6 +20,9 @@ sse:
   # Set the name of the egg file
   eapi_egg: SSEAPE-6.0.0-py2.7.egg
 
+  # Set the hash.
+  eapi_egg_hash: md5=b1946ac92492d2347c6235b4d2611184
+
   # Set the path of python packages
   # NOTE: Debian based distributions use dist-packages instead of site-packages.
   # Also on Debian based distros, easy_install will not allow you to 

@@ -14,6 +14,7 @@
 {% set eapi_password = salt['pillar.get']('sse:sse_eapi_password', 'salt') %}
 
 {% set eapi_egg = salt['pillar.get']('sse:eapi_egg') %}
+{% set eapi_egg_hash = salt['pillar.get']('sse:eapi_egg_hash') %}
 {% set eapi_egg_path = salt['pillar.get']('sse:eapi_egg_path', '/usr/lib/python2.7/site-packages/') %}
 {% set eapi_egg_download_url = salt['pillar.get']('sse:eapi_egg_download_url') %}
 
@@ -31,10 +32,11 @@ get_eapi_egg:
   file.managed:
     - name: /tmp/{{ eapi_egg }}
     - source: {{ eapi_egg_download_url }}/{{ eapi_egg }}
+    - source_hash: {{ eapi_egg_hash }}
 
 install_eapi_egg:
   cmd.run:
-    - name: {{ salt['grains.get']('pythonexecutable') }} {{ eapi_egg_path }}/easy_install.py /tmp/{{ eapi_egg }}
+    - name: easy_install /tmp/{{ eapi_egg }}
 
 delete_eapi_egg_tmp_file:
   file.absent:
