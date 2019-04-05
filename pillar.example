@@ -1,0 +1,31 @@
+# SSEAPI Server settings
+
+# Set the credentials for the SaltStack Enterprise service
+# - The default for the username is "root"
+#   and the default for the password is "salt"
+sse_eapi_username: root
+sse_eapi_password: salt
+
+# Set the endpoint for the SaltStack Enterprise service
+sse_eapi_endpoint: sseapi.example.com
+
+# Set if SaltStack Enterprise will use SSL encrypted communicaiton (HTTPS)
+sse_eapi_ssl_enabled: True
+
+# Set if SaltStack Enterprise will use SSL validation (verified certificate)
+sse_eapi_ssl_validation: True
+
+#  egg config
+
+# Set the name of the egg file
+eapi_egg: SSEAPE-6.0.0-py2.7.egg
+
+# Set the path of python packages
+# NOTE: Debian based distributions use dist-packages instead of site-packages.
+# Also on Debian based distros, easy_install will not allow you to 
+# install packages into /usr/lib/python* but will install into /usr/local/lib/python*
+eapi_egg_path: /usr/local/lib/python2.7/dist-packages/
+
+# Set the url for fetching the egg file.
+eapi_egg_download_url: https://localhost
+
