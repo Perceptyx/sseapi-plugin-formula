@@ -15,6 +15,15 @@ sse:
   # Set if SaltStack Enterprise will use SSL validation (verified certificate)
   sse_eapi_ssl_validation: True
 
+  # Set frecuency of polls for commands targeting the given master.
+  sseapi_poll_interval: 10
+
+  # Set Timeout for eAPI requests
+  sseapi_request_timeout: 60
+
+  # Set the update interval
+  sseapi_update_interval: 60
+
   #  egg config
 
   # Set the name of the egg file

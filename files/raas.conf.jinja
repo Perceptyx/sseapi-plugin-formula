@@ -16,13 +16,13 @@ sseapi_validate_cert: {{ eapi_ssl_validation }}
 # How frequently should the RaaS engine running on each master poll RaaS
 # for commands targeting the given master and how often should the engine
 # poll the master for data (minions, grains, file system) changes.
-sseapi_poll_interval: 10
+sseapi_poll_interval: {{ eapi_poll_interval }}
 
 # Timeout for eAPI requests
-sseapi_request_timeout: 60
+sseapi_request_timeout: {{ eapi_request_timeout }}
 
 # Specify the update interval
-sseapi_update_interval: 60
+sseapi_update_interval: {{ eapi_update_interval }}
 
 # Enable fileserver backends to use eAPI first, then local filesystem
 fileserver_backend:

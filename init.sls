@@ -13,6 +13,10 @@
 {% set eapi_username = salt['pillar.get']('sse:sse_eapi_username', 'root') %}
 {% set eapi_password = salt['pillar.get']('sse:sse_eapi_password', 'salt') %}
 
+{% set eapi_poll_interval = salt['pillar.get']('sse:sse_eapi_poll_interval', '10') %}
+{% set eapi_poll_request_timeout = salt['pillar.get']('sse:sse_eapi_request_timeout', '60') %}
+{% set eapi_update_interval = salt['pillar.get']('sse:sse_eapi_update_interval', '60') %}
+
 {% set eapi_egg = salt['pillar.get']('sse:eapi_egg') %}
 {% set eapi_egg_hash = salt['pillar.get']('sse:eapi_egg_hash') %}
 {% set eapi_egg_path = salt['pillar.get']('sse:eapi_egg_path', '/usr/lib/python2.7/site-packages/') %}
@@ -59,6 +63,9 @@ sseapi_plugin_conf:
         eapi_password: {{ eapi_password }}
         eapi_ssl_enabled: {{ eapi_ssl_enabled }}
         eapi_ssl_validation: {{ eapi_ssl_validation }}
+        eapi_poll_interval: {{ eapi_poll_interval }}
+        eapi_request_timeout: {{ eapi_request_timeout }}
+        eapi_update_interval: {{ eapi_update_interval }}
 
 sseapi_master_paths:
   file.managed:
