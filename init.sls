@@ -2,20 +2,20 @@
   Salt State to Install and Configure SaltStack Enterprise Master Plugin 
 #}
 
-{% set eapi_endpoint = salt['pillar.get']('sse_eapi_endpoint', 'localhost') %}
-{% set eapi_ssl_enabled = salt['pillar.get']('sse_eapi_ssl_enabled', 'True') %}
+{% set eapi_endpoint = salt['pillar.get']('sse:sse_eapi_endpoint', 'localhost') %}
+{% set eapi_ssl_enabled = salt['pillar.get']('sse:sse_eapi_ssl_enabled', 'True') %}
 {% if eapi_ssl_enabled %}
 {% set eapi_url = "https://%s"|format(eapi_endpoint) %}
 {% else %}
 {% set eapi_url = "http://%s"|format(eapi_endpoint) %}
 {% endif %}
-{% set eapi_ssl_validation = salt['pillar.get']('sse_eapi_ssl_validation', 'False') %}
-{% set eapi_username = salt['pillar.get']('sse_eapi_username', 'root') %}
-{% set eapi_password = salt['pillar.get']('sse_eapi_password', 'salt') %}
+{% set eapi_ssl_validation = salt['pillar.get']('sse:sse_eapi_ssl_validation', 'False') %}
+{% set eapi_username = salt['pillar.get']('sse:sse_eapi_username', 'root') %}
+{% set eapi_password = salt['pillar.get']('sse:sse_eapi_password', 'salt') %}
 
-{% set eapi_egg = salt['pillar.get']('eapi_egg') %}
-{% set eapi_egg_path = salt['pillar.get']('eapi_egg_path', '/usr/lib/python2.7/site-packages/') %}
-{% set eapi_egg_download_url = salt['pillar.get']('eapi_egg_download_url') %}
+{% set eapi_egg = salt['pillar.get']('sse:eapi_egg') %}
+{% set eapi_egg_path = salt['pillar.get']('sse:eapi_egg_path', '/usr/lib/python2.7/site-packages/') %}
+{% set eapi_egg_download_url = salt['pillar.get']('sse:eapi_egg_download_url') %}
 
 remove_old_sseapi_modules:
   cmd.run:
