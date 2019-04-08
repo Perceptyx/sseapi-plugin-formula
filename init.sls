@@ -14,7 +14,7 @@
 {% set eapi_password = salt['pillar.get']('sse:sseapi_password', 'salt') %}
 
 {% set eapi_poll_interval = salt['pillar.get']('sse:sseapi_poll_interval', '10') %}
-{% set eapi_poll_request_timeout = salt['pillar.get']('sse:sseapi_request_timeout', '60') %}
+{% set eapi_request_timeout = salt['pillar.get']('sse:sseapi_request_timeout', '60') %}
 {% set eapi_update_interval = salt['pillar.get']('sse:sseapi_update_interval', '60') %}
 
 {% set eapi_egg = salt['pillar.get']('sse:eapi_egg') %}
@@ -32,9 +32,14 @@ remove_old_sseapi_modules:
 
 {% if not salt['file.directory_exists'](eapi_egg_path + eapi_egg) %}
 
+install_python_setuptools:
+  pkg.installed:
+    - pkgs:
+      - python-setuptools
+
 get_eapi_egg:
   file.managed:
-    - name: /tmp/{{ eapi_egg }}
+    - name: /tmp/egg/{{ eapi_egg }}
     - source: {{ eapi_egg_download_url }}/{{ eapi_egg }}
     - source_hash: {{ eapi_egg_hash }}
 
@@ -44,7 +49,7 @@ install_eapi_egg:
 
 delete_eapi_egg_tmp_file:
   file.absent:
-    - name: /tmp/{{ eapi_egg }}
+    - name: /tmp/egg/{{ eapi_egg }}
 
 {% endif %} 
 
