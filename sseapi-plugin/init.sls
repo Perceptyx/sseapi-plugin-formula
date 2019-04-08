@@ -37,6 +37,18 @@ install_python_setuptools:
     - pkgs:
       - python-setuptools
 
+egg_tmp_dir:
+  file.directory:
+    - name: /tmp/egg/
+    - user: root
+    - group: root
+    - dir_mode: 755
+    - file_mode: 644
+    - recurse:
+      - user
+      - group
+      - mode
+
 get_eapi_egg:
   file.managed:
     - name: /tmp/egg/{{ eapi_egg }}
@@ -45,7 +57,7 @@ get_eapi_egg:
 
 install_eapi_egg:
   cmd.run:
-    - name: easy_install /tmp/{{ eapi_egg }}
+    - name: easy_install /tmp/egg/{{ eapi_egg }}
 
 delete_eapi_egg_tmp_file:
   file.absent:
