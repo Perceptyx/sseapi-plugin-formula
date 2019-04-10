@@ -25,11 +25,10 @@ sseapi_request_timeout: {{ eapi_request_timeout }}
 sseapi_update_interval: {{ eapi_update_interval }}
 
 # Enable fileserver backends to use eAPI first, then local filesystem
-fileserver_backend:
-  - sseapi
-  - roots
+#fileserver_backend:
+#  - sseapi
+#  - roots
 
 # Enable the eAPI external pillar
-ext_pillar:
-  - sseapi: {}
-
+#ext_pillar:
+#  - sseapi: {}
