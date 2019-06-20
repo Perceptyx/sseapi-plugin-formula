@@ -57,7 +57,7 @@ get_eapi_egg:
 
 install_eapi_egg:
   cmd.run:
-    - name: easy_install /tmp/egg/{{ eapi_egg }}
+    - name: python /usr/lib/python2.7/dist-packages/easy_install.py /tmp/egg/{{ eapi_egg }}
 
 delete_eapi_egg_tmp_file:
   file.absent:
